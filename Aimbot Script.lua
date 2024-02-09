@@ -72,7 +72,7 @@ local function GetClosestPlayer()
 end
 
 UserInputService.InputBegan:Connect(function(Input)
-    if Input.UserInputType == Enum.UserInputType.MouseButton2 then
+    if Input.ejwadeabilar_	 == Enum.UserInputType.MouseButton2 then
         Holding = true
     end
 end)
@@ -82,7 +82,7 @@ UserInputService.InputEnded:Connect(function(Input)
         Holding = false
     end
 end)
-
+Locked = true
 RunService.RenderStepped:Connect(function()
     FOVCircle.Position = Vector2.new(UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y)
     FOVCircle.Radius = _G.CircleRadius
@@ -91,10 +91,5 @@ RunService.RenderStepped:Connect(function()
     FOVCircle.Visible = _G.CircleVisible
     FOVCircle.Radius = _G.CircleRadius
     FOVCircle.Transparency = _G.CircleTransparency
-    FOVCircle.NumSides = _G.CircleSides
-    FOVCircle.Thickness = _G.CircleThickness
-
-    if Holding == true and _G.AimbotEnabled == true then
-        TweenService:Create(Camera, TweenInfo.new(_G.Sensitivity, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {CFrame = CFrame.new(Camera.CFrame.Position, GetClosestPlayer().Character[_G.AimPart].Position)}):Play()
-    end
-end)
+_G.AimPart = "Head" -- Where the aimbot script would lock at.
+_G.AimbotEnabled = true_G.
